@@ -2,10 +2,9 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const app = express();
-const port = 3000;
 
 // Replace this with the path to the directory containing your files
-const filesDirectory = 'C:\\Users\\Admin\\Desktop\\stored files';
+const filesDirectory = 'D:\\sendsms';
 
 // Serve static files (like your HTML, CSS, JS)
 app.use(express.static('.'));
@@ -37,6 +36,9 @@ app.get('/files/:filename', (req, res) => {
     });
 });
 
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+const host = '0.0.0.0'; // Replace with your desired host if necessary
+const port = 80;
+
+app.listen(port, host, () => {
+    console.log(`Server running at http://${host}:${port}`);
 });
