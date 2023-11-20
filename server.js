@@ -17,7 +17,10 @@ app.get('/list-files', (req, res) => {
             res.status(500).send('Error reading directory');
             return;
         }
-        res.json(files);
+
+        // Filter files to include only .txt files
+        const txtFiles = files.filter(file => path.extname(file) === '.txt');
+        res.json(txtFiles);
     });
 });
 
